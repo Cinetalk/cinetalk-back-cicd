@@ -1,0 +1,6 @@
+name: cinetalk-back-cicd
+
+on:
+  push:
+    branches:
+    - main
