@@ -18,7 +18,7 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-      RESOURCE_PATH: .docker-compose.yml
+      RESOURCE_PATH: ./docker-compose.yml
     permissions:
       contents: read
 
