@@ -1,5 +1,5 @@
-version: "3.8"                                          # 파일 규격 버전
-services:                                               # 이 항목 밑에 실행하려는 컨테이너들을 정의
+version: "3.8"                                # 파일 규격 버전
+services:                                     # 이 항목 밑에 실행하려는 컨테이너들을 정의
   cinetalk-back-redis:                        # 서비스명
     container_name: cinetalk-back-redis       # 컨테이너 명
     build:
@@ -24,7 +24,9 @@ services:                                               # 이 항목 밑에 실�
       - "3306:3306"      # 접근 포트 설정 (컨테이너 외부:컨테이너 내부)
   cinetalk-back-app:
     container_name: cinetalk-back-app
-    build: .
+    build:
+      context: .
+      dockerfile: ./Dockerfile
     depends_on:          # DB, REDIS 컨테이너가 실행된 다음 WEB을 실행시킨다.
       - cinetalk-back-database
       - cinetalk-back-redis
