@@ -54,7 +54,7 @@ spring:
       ddl-auto: validate # prod 배포시 validate
     show-sql: true
 
-pharmacy:
-  recommendation:
+cinetalk:
+  back:
     base:
       url: http://3.34.84.112/dir/ # aws ec2 탄력적 ip로 변경
