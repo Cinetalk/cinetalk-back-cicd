@@ -48,7 +48,7 @@ jobs:
         with:
           host: http://3.37.21.244/
           username: ec2-user
-          key: ${{ secrets.CINETALK_BACK_KEY_WINDOWS }}
+          key: ${{ secrets.AWS_PEM_KEY }}
           port: 22
           script: |
             docker login -u kallis0926 -p alemal@!34
