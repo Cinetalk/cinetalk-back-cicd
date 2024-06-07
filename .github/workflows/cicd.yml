@@ -51,8 +51,8 @@ jobs:
           key: ${{ secrets.CINETALK_BACK_KEY_WINDOWS }}
           port: 22
           script: |
-            docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-            docker rm $(docker ps -a -q)
-            docker rmi ${{ secrets.DOCKER_USERNAME }}/app:0.1
-            docker pull ${{ secrets.DOCKER_USERNAME }}/app:0.1
+#            docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+#            docker rm $(docker ps -a -q)
+#            docker rmi ${{ secrets.DOCKER_USERNAME }}/app:0.1
+#            docker pull ${{ secrets.DOCKER_USERNAME }}/app:0.1
             docker-compose up -d
