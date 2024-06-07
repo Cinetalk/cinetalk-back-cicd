@@ -24,9 +24,9 @@ services:                                     # 이 항목 밑에 실행하려�
       - "3306:3306"      # 접근 포트 설정 (컨테이너 외부:컨테이너 내부)
   cinetalk-back-app:
     container_name: cinetalk-back-app
-    build:
-      context: .
-      dockerfile: ./Dockerfile
+    build: .
+#      context: .
+#      dockerfile: ./Dockerfile
     depends_on:          # DB, REDIS 컨테이너가 실행된 다음 WEB을 실행시킨다.
       - cinetalk-back-database
       - cinetalk-back-redis
