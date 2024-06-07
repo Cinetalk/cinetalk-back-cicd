@@ -46,36 +46,9 @@ jobs:
       - name: Deploy
         uses: appleboy/ssh-action@v0.1.8
         with:
-          host: http://3.37.21.244/
+          host: 3.37.21.244
           username: ec2-user
-          key: |
-            -----BEGIN RSA PRIVATE KEY-----
-            MIIEowIBAAKCAQEAgETCaNcJw1bQrWAxx1V/EKMntfuZXjFms1hEfNfk0/EiGGfu
-            +Pp6+NlTyf49Vhvk+Mn7HnepKu4m3i9ZfnifDQW1BzIJN0hipwnfsgVNvXBCVXZ4
-            Os9KZlEdeciYpj+cDunwq6nuCduomnvptMKs1iSN1RyXmtHXw4V00LvOsZOI+JoS
-            eR+B+qMwCtNp7m5tt62Qj8lkhiJ/d4JrKctTQDuojmifuPc1RKwyhEHoLnxmgZlW
-            1luD9/6VqHT87GWPAJGsc1O2K+xqNAdC8bsmcsx6K4nOmfYaaF75VhYxRPwwWN+M
-            9fT/J/2Htnq4B/km96e/p37w+bJLjNRPH62WPQIDAQABAoIBADWzk+kszouX1zof
-            IfgglVgz1rZcJfPHnwXLGLFj+gu50tqA+Q4IYF+7LVdOOAPLHewDND2nP44XsvIm
-            xMMsYPqkvwvKKQ2aIqNogN0ZV1jOnRcGyINmsfFwWHTaRP6ldwLPctGMDXrXGhnD
-            cy8Yqh/lofPtSpOo8zqKr0OMvZaeXo40FmdsWOfexLNKuZ9qHPPavoWTpCkjgKpp
-            nE7B3slVL9bObTWXqOzwnLHuU6eXMGtjmQFE8eno/e0ymCYS0BYQnO7nzUOCpLtz
-            N8cPi8ov1ggH0OvzqhG0F7UMgos9nfA6u4l495baVdoXOs12Wse9Qee/D2JbNZfC
-            3kA6hckCgYEA7wHmILNSKxreoO3607C+r8FeI+Ndlt8vt2SaFWOB0hTCKM5CAfdF
-            36TEWFj94I80L2ge5+MyKJfG+/SKMDWXuW9ntfT2MTloYOcPQXsmaq9ih9iaLJxA
-            npb4FhQCWg8x5YcDWzHDhEnPC4nlE5BqUdX2q4R+A+UVsNJGPvgIDS8CgYEAiWNW
-            PuGi3ZSWtJm+lalD62//IDz2PwZJZ307KUQ0cP+yqcE/03qzdPff2bKLBGnUzS20
-            r+Ei3uwyrPValKcG86hodyRSnsLIoRBJPbImnIKJIDX1Rye1Ko74Sz21f4vsp0hi
-            QHf/rzrxQRK64UY6ZIQfyxKOD8tFeuwv2O3PsFMCgYB9/k5GJsHGH2AFDe8P8ThU
-            hmcOHCmWAwmwb8QaSl6BVJgV0sVRK/0VrFIlEKSk4FjuNME2FLq4U2p+H6dJSrc0
-            9dmCPiQaRt0TWDrelgDmdJZIbpK3uZcHAya83Mdwmln/WXEXfeBHuHEA8CxmZ9bk
-            VRq3yBx2CSmqEO8e+rmj2QKBgBK6jflIfRFDvj+kbcytJGsl+1uDs/Xnf34yHiyD
-            9bopwUtO4sqLgYdCeyuMIVNasf2+a1FGmaBWBpp5X/2/vzzcClGji/fEieEa/UEB
-            1i2jxdm0QVmP2iyRDNwE74cRphMv1OUA9sQGfvjl+r/W+QLW2Baw0tjoVvJo3CTw
-            Vk2tAoGBAORwNaThnls+LxN4HvDMYykm+Bh2M4bmTZBzK7ioyFHFYe/VpaFBOqba
-            wlj4foa5R40LjjDdD4jh8x70GwB6iulwk8Elh8ioccsBgzJ6JSkgPloHhkFmRIH4
-            VJfgYrdstD/MK+hlJ0vltwH3t89KgaBYi91Td+Ju0poqxAv5IVye
-            -----END RSA PRIVATE KEY-----
+          key: ${{ secrets.AWS_PEM_KEY }}
           port: 22
           script: |
             docker login -u kallis0926 -p ${{ secrets.DOCKER_PASSWORD }}
