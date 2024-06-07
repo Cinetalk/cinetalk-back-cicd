@@ -35,7 +35,8 @@ jobs:
          sudo chmod +x /usr/local/bin/docker-compose
          sudo chmod 666 /var/run/docker.sock
       - name: Build with Gradle
-        run: ./gradlew clean build -x test # --no-daemon
+        run: ./gradlew build -x test # --no-daemon
+
       - name: Docker build
         run: |
 #          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
