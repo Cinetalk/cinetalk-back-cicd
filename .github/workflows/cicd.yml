@@ -52,7 +52,5 @@ jobs:
           port: 22
           script: |
             docker login -u kallis0926 -p ${{ secrets.DOCKER_PASSWORD }}
-            docker rm $(docker ps -a -q)
-            docker rmi kallis0926/cinetalk-back-app:0.1
             docker pull kallis0926/cinetalk-back-app:0.1
             docker-compose up -d --build
