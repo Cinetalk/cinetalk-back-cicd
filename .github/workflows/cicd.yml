@@ -3,10 +3,10 @@ name: cinetalk-back-cicd
 on:
   push:
     branches:
-      - main
+      - [main, dummy]
   pull_request:
     branches:
-      - main
+      - [main, dummy]
 
 jobs:
   build:
