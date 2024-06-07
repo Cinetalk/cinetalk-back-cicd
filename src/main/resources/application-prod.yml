@@ -13,10 +13,10 @@ spring:
       port: 6379
   jpa:
     hibernate:
-      ddl-auto: validate # prod 배포시 validate
+      ddl-auto: validate
     show-sql: true
 
 cinetalk:
   back:
     base:
-      url: http://3.37.21.244/dir/ # aws ec2 탄력적 ip로 변경
+      url: http://3.37.21.244/
