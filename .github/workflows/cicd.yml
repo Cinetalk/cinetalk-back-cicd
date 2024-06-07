@@ -29,7 +29,11 @@ jobs:
             ${{ runner.os }}-gradle-
 
       - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
+        run: |
+         chmod +x gradlew
+         sudo systemctl start docker
+         sudo chmod +x /usr/local/bin/docker-compose
+         sudo chmod 666 /var/run/docker.sock
       - name: Build with Gradle
         run: ./gradlew clean build -x test # --no-daemon
       - name: Docker build
