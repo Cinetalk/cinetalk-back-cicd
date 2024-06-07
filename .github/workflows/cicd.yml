@@ -46,12 +46,12 @@ jobs:
       - name: Deploy
         uses: appleboy/ssh-action@v0.1.8
         with:
-          host: ${{ secrets.CINETALK_BACK_BASE_URL }}
+          host: http://3.37.21.244/
           username: ec2-user
           key: ${{ secrets.CINETALK_BACK_KEY_WINDOWS }}
           port: 22
           script: |
-            docker login -u kallis0926 -p ${{ secrets.DOCKER_PASSWORD }}
+            docker login -u kallis0926 -p alemal@!34
             docker rm $(docker ps -a -q)
             docker rmi kallis0926/cinetalk-back-app:0.1
             docker pull kallis0926/cinetalk-back-app:0.1
