@@ -19,4 +19,4 @@ spring:
 cinetalk:
   back:
     base:
-      url: http://3.34.84.112/dir/ # aws ec2 탄력적 ip로 변경
+      url: http://3.37.21.244/dir/ # aws ec2 탄력적 ip로 변경

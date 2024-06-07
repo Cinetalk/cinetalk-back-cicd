@@ -1,0 +1,42 @@
+name: cinetalk-back-cicd
+on:
+  push:
+    branches:
+      - [main]
+  pull_request:
+    branches:
+      - [main]
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: make application.yml
+        run: |
+          cd ./src/main/resources
+          touch ./application-prod.yml
+          echo "${{ secret.YML_PROD}}"
+        shell: bash
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+      - name: Build with Gradle
+        run: ./gradlew clean build -x test # --no-daemon
+      - name: Docker build
+        run: |
+          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/app:0.1 . 
+          docker push ${{ secrets.DOCKER_USERNAME }}/app:0.1
+      - name: Deploy
+        uses: appleboy/ssh-action@v0.1.8
+        with:
+          host: ${{ secrets.CINETALK_BACK_BASE_URL }}
+          username: ec2-user
+          key: ${{ secrets.CINETALK_BACK_KEY_WINDOWS }}
+          port: 22
+          script: |
+            docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+            docker rm $(docker ps -a -q)
+            docker rmi ${{ secrets.DOCKER_USERNAME }}/app:0.1
+            docker pull ${{ secrets.DOCKER_USERNAME }}/app:0.1
+            docker-compose up -d
