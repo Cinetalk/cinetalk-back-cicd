@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: local # default
+    active: local
     group:
       local:
         - common
@@ -58,5 +58,5 @@ spring:
 cinetalk:
   back:
     base:
-      url: http://3.37.21.244/
+      url: http://3.37.21.244/dir/
 

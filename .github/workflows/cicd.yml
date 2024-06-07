@@ -15,7 +15,7 @@ jobs:
         run: |
           cd ./src/main/resources
           touch ./application.yml
-          echo "${{ secret.YML}}"
+          echo "${{ secret.YML }}"
         shell: bash
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
