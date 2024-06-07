@@ -1,11 +1,13 @@
 name: cinetalk-back-cicd
+
 on:
   push:
     branches:
-      - [main]
+      - main
   pull_request:
     branches:
-      - [main]
+      - main
+
 jobs:
   build:
     runs-on: self-hosted
